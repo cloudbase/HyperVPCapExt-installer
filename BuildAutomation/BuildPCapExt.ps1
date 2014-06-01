@@ -80,7 +80,7 @@ try
     $ftpsPassword = $ftpsCredentials.GetNetworkCredential().Password
 
     ExecRetry {
-        &ftps -h www.cloudbase.it -ssl All -U $ftpsUsername -P $ftpsPassword -sslInvalidServerCertHandling Accept -p $zipPath /cloudbase.it/main/downloads/PCapExt.zip
+        &ftps -h www.cloudbase.it -ssl All -U $ftpsUsername -P $ftpsPassword -sslInvalidServerCertHandling Accept -p $zipPath /cloudbase.it/main/downloads/HyperV-PCapExt.zip
         if ($LastExitCode) { throw "ftps failed" }
     }    
 }
