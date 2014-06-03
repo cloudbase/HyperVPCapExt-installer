@@ -59,8 +59,10 @@ try
         popd
     }
 
+    $crossCertPath = "$scriptPath\After_10-10-10_MSCV-VSClass3.cer"
+
     ExecRetry {
-        &signtool.exe sign /sha1 $sign_cert_thumbprint /t http://timestamp.verisign.com/scripts/timstamp.dll /v "$outputPath\$sysFileName"
+        &signtool.exe sign /ac $crossCertPath /sha1 $sign_cert_thumbprint /t http://timestamp.verisign.com/scripts/timstamp.dll /v "$outputPath\$sysFileName"
         if ($LastExitCode) { throw "signtool failed" }
     }
 
@@ -68,7 +70,7 @@ try
     if ($LastExitCode) { throw "inf2cat failed" }
 
     ExecRetry {
-        &signtool.exe sign /sha1 $sign_cert_thumbprint /t http://timestamp.verisign.com/scripts/timstamp.dll /v "$outputPath\$catFileName"
+        &signtool.exe sign /ac $crossCertPath /sha1 $sign_cert_thumbprint /t http://timestamp.verisign.com/scripts/timstamp.dll /v "$outputPath\$catFileName"
         if ($LastExitCode) { throw "signtool failed" }
     }
 
