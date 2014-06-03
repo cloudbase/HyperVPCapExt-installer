@@ -64,7 +64,7 @@ try
         if ($LastExitCode) { throw "signtool failed" }
     }
 
-    &inf2cat.exe /driver:$outputPath /os:8_x64 /USELOCALTIME
+    &inf2cat.exe /driver:$outputPath /os:8_x64
     if ($LastExitCode) { throw "inf2cat failed" }
 
     ExecRetry {
