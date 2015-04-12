@@ -17,7 +17,7 @@ $outputPath = "$buildDir\PCapExt"
 # Needed for SSH
 $ENV:HOME = $ENV:USERPROFILE
 
-$sign_cert_thumbprint = "65c29b06eb665ce202676332e8129ac48d613c61"
+$sign_cert_thumbprint = "B0CF6DD6A4BAC27018DD2F330206DFADFABB25F9"
 $ftpsCredentials = GetCredentialsFromFile "$ENV:UserProfile\ftps.txt"
 
 CheckDir $basePath
